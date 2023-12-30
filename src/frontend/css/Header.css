@@ -1,0 +1,57 @@
+/* src/components/ImageTextLayout.css */
+.container {
+    display: flex;
+    width: 100%;
+    margin-top: 100px;
+  }
+  
+  .image-container {
+    flex: 1; /* Take up half of the container width */
+    margin: 5px;
+  }
+  
+  .image-container img {
+    width: 100%; /* Make the image fill its container */
+    height: 550px; /* Maintain aspect ratio */
+  }
+  
+  .text-container {
+    flex: 1; /* Take up half of the container width */
+    padding: 20px; /* Add padding for better styling (adjust as needed) */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    background-color: #ffffff;
+  }
+  
+  .text-container h2 {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin-bottom: 5px; /* Add space below the heading */
+  }
+  
+  .text-container .underline {
+    height: 2px;
+    background-color: #333; /* Set the color of the underline */
+    width: 50px; /* Adjust the width of the underline */
+    margin-bottom: 10px; /* Add space below the underline */
+  }
+  
+  .text-container p {
+    margin-bottom: 15px; /* Add space below the paragraph */
+  }
+  
+  .text-container button {
+    padding: 10px; /* Add padding to the button */
+    background-color: #4caf50; /* Set the background color of the button */
+    color: #fff; /* Set the text color of the button */
+    border: none;
+    cursor: pointer;
+  }
+  
+  .text-container button:hover {
+    background-color: #45a049; /* Change the background color on hover */
+  }
+  
+  .text-container hr {
+    margin-top: 20px; /* Add space above the horizontal line */
+    border: 1px solid #ddd; /* Set the color of the horizontal line */
+  }
+  

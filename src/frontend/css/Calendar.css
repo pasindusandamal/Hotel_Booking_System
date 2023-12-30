@@ -1,0 +1,76 @@
+/* CalendarPage.css */
+.booking-container {
+  border: none;
+  margin-left: 350px;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.calendar-step {
+  flex: 1;
+  margin-right: 50px;
+}
+
+.custom-calendar {
+  font-size: 16px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.button-container-1 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -35px;
+  margin-left: 300px;
+  width: 300px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 250px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.input-container {
+  position: relative;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  border: none; /* Remove the border */
+  border-bottom: 1px solid #ccc; /* Add a bottom border */
+  border-radius: 0; /* Remove border radius */
+  outline: none; /* Remove the outline */
+}
+
+/* Add a pseudo-element for the bottom border animation */
+input[type="text"]:focus {
+  border-bottom: 2px solid #4caf50; /* Change the color of the bottom border on focus */
+}
