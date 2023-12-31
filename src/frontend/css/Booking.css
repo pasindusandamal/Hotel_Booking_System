@@ -24,8 +24,8 @@
     outline: none;
   }
   
-  button {
-    background-color: #007bff;
+  book-button {
+    background-color: rgb(180, 141, 12);
     color: #fff;
     padding: 10px;
     border: none;

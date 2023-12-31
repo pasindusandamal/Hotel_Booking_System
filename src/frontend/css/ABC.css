@@ -1,0 +1,57 @@
+/* ABC.css */
+
+.vertical-line {
+    border-right: 1px solid #ddd; /* Add a vertical line between columns */
+    padding-right: 20px; /* Add padding to the right of each column */
+  }
+  
+  .container {
+    margin-top: 20px; /* Add margin to the top of the container */
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between; /* Make columns evenly spaced */
+  }
+  
+  .col {
+    flex: 1; /* Make each column take up equal space */
+  }
+  
+  /* Add modern styling to form and button */
+  .formEmail {
+    width: 100%;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 0;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .btn-1{
+    border-radius: 0;
+    border: 0;
+  }
+  /* Align text in the same line */
+  .row p {
+    margin: 0;
+  }
+  
+  /* Add spacing between elements for better readability */
+  .row p + p {
+    margin-top: 10px; /* Adjust margin-top to create space between values */
+  }
+  
+  /* Style the selected value differently */
+  .selected-value {
+    font-weight: bold;
+    color: #28a745; /* Green color, or adjust to your preference */
+    margin-bottom: 5px; /* Add margin between selected value and the next output */
+  }
+  
