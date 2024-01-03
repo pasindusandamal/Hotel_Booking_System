@@ -7,7 +7,7 @@ const Banner = () => {
     <div>
       <img className="banner-image" src={bannerImage} />
       <div className="text-overlay">
-        <h1>Welcome to Viwer Bird Villa</h1>
+        <h1>Welcome to Urban Vogue </h1>
         <p>Explore and discover amazing things!</p>
         <div className="button-container">
           <button className="book-now-button-1">Book Now</button>

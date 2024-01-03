@@ -19,6 +19,13 @@
   font-size: 16px;
 }
 
+/* CSS in your Calendar.css file */
+.custom-calendar-container {
+  height: 270px; /* Adjust the height as needed */
+  width: 242px; /* Adjust the width as needed */
+}
+
+
 input[type="text"] {
   width: 100%;
   padding: 8px;

@@ -35,7 +35,7 @@ const Payment = () => {
       time: 4000,
     });
 
-    navigate("/form"); // Updated navigation
+   
   };
 
   const handleFailure = () => {

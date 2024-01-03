@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="left-section">
-        <span className="logo">Viwer Bird Villa</span>
+        <span className="logo">Urban Vogue Suites</span>
       </div>
       <div className={`center-section ${showMenu ? "show-menu" : ""}`}>
         <ul className={`nav-list ${showMenu ? "show-menu" : ""}`}>
@@ -40,13 +40,13 @@ const Navbar = () => {
         <ul className={`nav-list ${showMenu ? "show-menu" : ""}`}>
           <li className="nav-item">
             <Link to="/signin" className="nav-link">
-              <FaSignInAlt />
+              <FaSignInAlt style={{marginRight:8}} />
               Sign in
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/signup" className="nav-link">
-              <FaUserPlus />
+              <FaUserPlus style={{marginRight:6}} />
               Sign up
             </Link>
           </li>

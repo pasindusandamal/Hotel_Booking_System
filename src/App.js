@@ -16,7 +16,8 @@ import Calendar from "./frontend/js/Calendar";
 import ABC from "./frontend/js/ABC";
 import Accommodation from "./frontend/js/Accommodation";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Stripe from "./frontend/js/Stripe";
+import Form from "./frontend/js/Form";
 function Bookingsection() {
   return <Booking />;
 }
@@ -47,6 +48,8 @@ function App() {
         <Route path="/calendar" element={<Calandarsection />} />
         <Route path="/abc" element={<ABC />} />
         <Route path="/acc" element={<Accommodation />} />
+        <Route path="/str" element={<Stripe />} />
+        <Route path="/frm" element={<Form />} />
       </Routes>
     </BrowserRouter>
   );

@@ -5,10 +5,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../css/ABC.css";
 import { Form, Button } from "react-bootstrap";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCcVisa } from "@fortawesome/free-brands-svg-icons";
 import { faCcStripe } from "@fortawesome/free-brands-svg-icons";
+import Stripe from "../js/Stripe";
+import { Link } from "react-router-dom";
 
 const ABC = () => {
   const location = useLocation();
@@ -21,10 +22,17 @@ const ABC = () => {
   const checkOut = queryParams.get("checkOut");
   const selectedValue = queryParams.get("selectedValue"); // Add this line
 
+
+
+  
   return (
     <Container style={{ borderTop: "1px solid #ddd" }}>
       <Row style={{ marginTop: 20 }}>
-        <p style={{ textAlign: "center" }}>Summery<br/><br/></p>
+        <p style={{ textAlign: "center" }}>
+          Summery
+          <br />
+          <br />
+        </p>
         <Col
           lg={6}
           className="vertical-line"
@@ -124,9 +132,12 @@ const ABC = () => {
           <FontAwesomeIcon icon={faCcStripe} size="2x" color="grey" />
           <br />
           <br />
-          <Button variant="primary" style={{ borderRadius: "0" }}>
-            Pay Now
-          </Button>
+          <div style={{ width: 250, height: 50, borderRadius: "0" }}>
+            {" "}
+            <Link to={`/frm?selectedValue=${selectedValue}&adults=${adults}&kids=${kids}&checkIn=${checkIn}&checkOut=${checkOut}`}>
+            <Stripe />
+          </Link>
+          </div>
         </Col>
       </Row>
     </Container>
