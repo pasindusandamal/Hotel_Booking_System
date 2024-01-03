@@ -18,6 +18,10 @@ import Accommodation from "./frontend/js/Accommodation";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Stripe from "./frontend/js/Stripe";
 import Form from "./frontend/js/Form";
+import RegisterForm from "./frontend/js/RegisterForm";
+import LoginForm from "./frontend/js/LoginForm";
+import WelcomePage from "./frontend/js/welcome";
+
 function Bookingsection() {
   return <Booking />;
 }
@@ -50,6 +54,9 @@ function App() {
         <Route path="/acc" element={<Accommodation />} />
         <Route path="/str" element={<Stripe />} />
         <Route path="/frm" element={<Form />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/welcome" element={<WelcomePage />} />
       </Routes>
     </BrowserRouter>
   );
