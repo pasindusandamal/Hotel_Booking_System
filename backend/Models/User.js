@@ -6,11 +6,11 @@ const usersSchema = new mongoose.Schema({
   kids: String,
   selectedValue: String,
   checkIn: String,
-  checkOut: String
+  checkOut: String,
 
-  /*name:String,
+  username:String,
   email:String,
-  password:String*/
+  password:String
 });
 
 module.exports = mongoose.model("users", usersSchema);

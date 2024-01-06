@@ -4,7 +4,7 @@ import img4 from "../../assets/bed5.jpg";
 import { useNavigate } from "react-router-dom";
 
 
-export default function ManualFormPage() {
+export default function Login() {
   const [adults, setAdults] = useState("");
   const [kids, setKids] = useState("");
   const [selectedValue, setSelectedValue] = useState("");

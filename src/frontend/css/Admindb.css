@@ -1,0 +1,48 @@
+/* CSS in your Admindb.css */
+.modern-table {
+  border-collapse: collapse;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modern-table th,
+.modern-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.modern-table th {
+  background-color: #f2f2f2;
+}
+
+/* Reduce button width */
+.modern-table td Button {
+  width: 80px; /* Adjust the width as needed */
+}
+
+/* Style the update form */
+#updateForm {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  max-width: 400px; /* Adjust the width as needed */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#updateForm label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#updateForm input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+#updateForm Button {
+  margin-right: 10px;
+}

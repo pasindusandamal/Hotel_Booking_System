@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const Stripe = require("stripe")(process.env.SECRET_KEY);
 var cors = require("cors");
+const bcrypt = require("bcrypt");
 
 // MongoDB setup
 require("./db/connection");
@@ -27,7 +28,6 @@ app.get("/getUsers", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-
 app.post("/", async (req, res) => {
   let user = new User(req.body);
   let result;
@@ -42,11 +42,11 @@ app.post("/", async (req, res) => {
 
 // Save data endpoint for user registration
 app.post("/registerUser", async (req, res) => {
-  const { username, email, password, confirmPassword } = req.body;
+  const { username, email, password, confirmPassword, userRole } = req.body;
 
   try {
     // Validate required fields
-    if (!username || !email || !password || !confirmPassword) {
+    if (!username || !email || !password || !confirmPassword || !userRole) {
       return res.status(400).json({ error: "All fields are required" });
     }
 
@@ -67,6 +67,7 @@ app.post("/registerUser", async (req, res) => {
       email,
       password,
       confirmPassword,
+      userRole, // Include the userRole in the model instance
     });
 
     // Save the user registration data to the database
@@ -79,22 +80,72 @@ app.post("/registerUser", async (req, res) => {
   }
 });
 
-// Login endpoint
-app.post("/login", async (req, res) => {
-  const { username, password } = req.body;
-
+// Delete user endpoint
+app.delete("/deleteUser/:id", async (req, res) => {
+  const userId = req.params.id;
+  console.log("Deleting user with ID:", userId);
   try {
-    const user = await User.findOne({ username });
+    // Check if the user exists
+    const existingUser = await User.findById(userId);
 
-    if (!user) {
-      res.status(401).json({ error: "Invalid credentials" });
-      return;
+    if (!existingUser) {
+      return res.status(404).json({ error: "User not found" });
     }
 
-    // Assuming you store plaintext passwords in the database
-    if (password === user.password) {
-      res.json({ message: "Login successful" });
+    // Delete the user from the database
+    await existingUser.deleteOne(); // Use deleteOne or deleteMany
+
+    res.json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Update user endpoint
+app.put("/updateUser/:id", async (req, res) => {
+  const userId = req.params.id;
+  const updatedDetails = req.body;
+
+  try {
+    // Check if the user exists
+    const existingUser = await User.findById(userId);
+
+    if (!existingUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Update the user's details in the database
+    existingUser.set(updatedDetails);
+    await existingUser.save();
+
+    res.json({ message: "User updated successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Login user endpoint
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    // Find the user by email
+    const user = await Login.findOne({ email });
+
+    if (user && password === user.password) {
+      // Login successful
+      res.json({
+        message: "Login successful",
+        userData: {
+          username: user.username,
+          email: user.email,
+          userRole: user.userRole,
+        },
+      });
     } else {
+      // Invalid credentials or user not found
       res.status(401).json({ error: "Invalid credentials" });
     }
   } catch (error) {

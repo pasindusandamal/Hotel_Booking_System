@@ -8,6 +8,7 @@ export default function RegistrationForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [userRole, setUserRole] = useState("user"); // Default role is "user"
   const navigate = useNavigate();
 
   const registerUser = async (e) => {
@@ -21,6 +22,7 @@ export default function RegistrationForm() {
           email,
           password,
           confirmPassword,
+          userRole,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -104,6 +106,20 @@ export default function RegistrationForm() {
             />
           </Form.Group>
 
+          <Form.Group controlId="formUserRole">
+            <Form.Label>User Role</Form.Label>
+            <Form.Control
+              as="select"
+              value={userRole}
+              onChange={(e) => setUserRole(e.target.value)}
+            >
+              <option value="user">User</option>
+              <option value="staff">Staff</option>
+              <option value="admin">Admin</option>
+            </Form.Control>
+          </Form.Group>
+
+          <br />
           <Button variant="primary" type="submit" style={{ borderRadius: "0" }}>
             Register
           </Button>

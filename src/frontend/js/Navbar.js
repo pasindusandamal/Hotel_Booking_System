@@ -39,13 +39,13 @@ const Navbar = () => {
       <div className="right-section">
         <ul className={`nav-list ${showMenu ? "show-menu" : ""}`}>
           <li className="nav-item">
-            <Link to="/signin" className="nav-link">
+            <Link to="/login" className="nav-link">
               <FaSignInAlt style={{marginRight:8}} />
               Sign in
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/signup" className="nav-link">
+            <Link to="/register" className="nav-link">
               <FaUserPlus style={{marginRight:6}} />
               Sign up
             </Link>

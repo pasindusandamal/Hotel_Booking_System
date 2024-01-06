@@ -21,6 +21,8 @@ import Form from "./frontend/js/Form";
 import RegisterForm from "./frontend/js/RegisterForm";
 import LoginForm from "./frontend/js/LoginForm";
 import WelcomePage from "./frontend/js/welcome";
+import Gallery from "./frontend/js/Gallery";
+import Admindb from "./frontend/js/Admindb";
 
 function Bookingsection() {
   return <Booking />;
@@ -38,7 +40,10 @@ function Homepage() {
       <Header />
       <Room />
       <Offer />
+      <Gallery/>
       <Footer />
+      <Admindb/>
+      
     </>
   );
 }
@@ -55,7 +60,7 @@ function App() {
         <Route path="/str" element={<Stripe />} />
         <Route path="/frm" element={<Form />} />
         <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/login" element={<LoginForm/>} />
         <Route path="/welcome" element={<WelcomePage />} />
       </Routes>
     </BrowserRouter>

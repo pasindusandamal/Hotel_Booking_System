@@ -3,22 +3,28 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true, // Username is a required field for registration
-    unique: true, // Ensures username is unique
+    required: true,
+    unique: true,
   },
   email: {
     type: String,
-    required: true, // Email is a required field for registration
-    unique: true, // Ensures email is unique
+    required: true,
+    unique: true,
   },
   password: {
     type: String,
-    required: true, // Password is a required field for registration
+    required: true,
   },
   confirmPassword: {
     type: String,
-    required: true, // ConfirmPassword is a required field for registration
+    required: true,
+  },
+  userRole: {
+    type: String,
+    enum: ['user', 'staff', 'admin'], // Define allowed roles
+    default: 'user', // Default role is 'user'
+    required: true,
   },
 });
 
-module.exports = mongoose.model("login", userSchema);
+module.exports = mongoose.model('login', userSchema);

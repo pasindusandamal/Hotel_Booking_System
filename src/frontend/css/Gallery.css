@@ -1,0 +1,28 @@
+.image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gallery {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .gallery:hover {
+    transform: scale(1.1);
+  }
+  
+  .image-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
