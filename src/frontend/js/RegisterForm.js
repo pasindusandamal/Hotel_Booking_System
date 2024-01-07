@@ -15,7 +15,7 @@ export default function RegistrationForm() {
     e.preventDefault();
 
     try {
-      let result = await fetch(" https://hotel-booking-backend-5a73b0667830.herokuapp.com:5000/registerUser", {
+      let result = await fetch(" https://hotel-booking-backend-5a73b0667830.herokuapp.com/registerUser", {
         method: "post",
         body: JSON.stringify({
           username,
