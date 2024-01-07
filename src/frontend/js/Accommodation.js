@@ -1,24 +1,29 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import "../css/Accommodation.css";
-import { Form } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import img1 from "../../assets/bed2.jpg";
 import img2 from "../../assets/bed3.jpg";
 import img3 from "../../assets/bed4.jpg";
 import img4 from "../../assets/bed5.jpg";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
 
 const Accommodation = ({}) => {
+  const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const adults = queryParams.get("adults");
   const kids = queryParams.get("kids");
-
   const checkInDate = queryParams.get("checkIn");
   const checkOutDate = queryParams.get("checkOut");
+  const selectedValue = 616;
+  const handleProceed = () => {
+    // Use the Link component to navigate and pass data
+    navigate(`/frm?selectedValue=${selectedValue}&adults=${adults}&kids=${kids}&checkIn=${checkInDate}&checkOut=${checkOutDate}`);
+  };
+  
+
   return (
     <div>
       <Container>
@@ -31,7 +36,6 @@ const Accommodation = ({}) => {
           <Col>
             <img src={img1} alt="Room" className="room-image" />
           </Col>
-          
 
           <Col style={{ marginTop: 15 }}>
             <h3 style={{ fontSize: 16 }}>Luxary Twin</h3>
@@ -136,9 +140,12 @@ const Accommodation = ({}) => {
               </Col>
               <hr />
             </Row>
-            <Link to="{`/abc?selectedValue=$ 616.32`}">
-              {" "}
-              <button className="book-now-button">$ 616.32 | Book Now</button>
+            <Link
+              to={`/abc?selectedValue=${selectedValue}&adults=${adults}&kids=${kids}&checkIn=${checkInDate}&checkOut=${checkOutDate}`}
+            >
+              <button className="book-now-button" onClick={handleProceed}>
+                $ 616.32 | Book Now
+              </button>
             </Link>
           </Col>
         </Row>
@@ -258,9 +265,12 @@ const Accommodation = ({}) => {
               </Col>
               <hr />
             </Row>
-            <Link to="{`/abc?selectedValue=$ 616.32`}">
-              {" "}
-              <button className="book-now-button">$ 616.32 | Book Now</button>
+            <Link
+              to={`/abc?selectedValue=${selectedValue}&adults=${adults}&kids=${kids}&checkIn=${checkInDate}&checkOut=${checkOutDate}`}
+            >
+              <button className="book-now-button" onClick={handleProceed}>
+                $ 616.32 | Book Now
+              </button>
             </Link>
           </Col>
         </Row>
@@ -380,9 +390,12 @@ const Accommodation = ({}) => {
               </Col>
               <hr />
             </Row>
-            <Link to="{`/abc?selectedValue=$ 616.32`}">
-              {" "}
-              <button className="book-now-button">$ 616.32 | Book Now</button>
+            <Link
+              to={`/abc?selectedValue=${selectedValue}&adults=${adults}&kids=${kids}&checkIn=${checkInDate}&checkOut=${checkOutDate}`}
+            >
+              <button className="book-now-button" onClick={handleProceed}>
+                $ 616.32 | Book Now
+              </button>
             </Link>
           </Col>
         </Row>
@@ -503,9 +516,11 @@ const Accommodation = ({}) => {
               <hr />
             </Row>
             <Link
-              to={`/abc?selectedValue=$616.32&adults=${adults}&kids=${kids}&checkIn=${checkInDate}&checkOut=${checkOutDate}`}
+              to={`/abc?selectedValue=${selectedValue}&adults=${adults}&kids=${kids}&checkIn=${checkInDate}&checkOut=${checkOutDate}`}
             >
-              <button className="book-now-button" >$ 616.32 | Book Now</button>
+              <button className="book-now-button" onClick={handleProceed}>
+                $ 616.32 | Book Now
+              </button>
             </Link>
           </Col>
         </Row>

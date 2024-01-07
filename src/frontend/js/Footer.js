@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-section">
           <h2>About Us</h2>
-          <p>Your hotel booking partner providing the best experience.</p>
+          <p>Urban Vogue Suites booking partner providing the best experience.</p>
         </div>
         <div className="footer-section">
           <h2>Quick Links</h2>
@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <h2>Connect With Us</h2>
-          <div className="social-icons">
+          <div className="social-icons" style={{textDecoration:'none'}}>
             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
             <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
             <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2023 Viwer Bird Villa. All rights reserved.</p>
+        <p>&copy; 2024 Urban Vogue Suites. All rights reserved.</p>
       </div>
     </footer>
   );
