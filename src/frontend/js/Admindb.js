@@ -24,7 +24,7 @@ const Admindb = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/getUsers")
+      .get("https://hotel-booking-backend-5f327caf5929.herokuapp.com:5000/getUsers")
       .then((response) => {
         setUsers(response.data);
         setReservedDates(
