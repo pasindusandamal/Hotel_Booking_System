@@ -12,7 +12,7 @@ export default function LoginPage() {
     e.preventDefault();
 
     try {
-      let result = await fetch("http://localhost:5000/login", {
+      let result = await fetch("http:// https://hotel-booking-backend-5a73b0667830.herokuapp.com//login", {
         method: "post",
         body: JSON.stringify({ email, password, userRole }),
         headers: {
