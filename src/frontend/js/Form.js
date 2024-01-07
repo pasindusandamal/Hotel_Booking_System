@@ -23,7 +23,7 @@ export default function FormPage() {
     e.preventDefault();
 
     try {
-      let result = await fetch("http://localhost:5000/", {
+      let result = await fetch("http://hotel-booking-backend-5f327caf5929.herokuapp.com:5000/", {
         method: "post",
         body: JSON.stringify({
           adults,
