@@ -48,10 +48,3 @@
     margin-top: 10px; /* Adjust margin-top to create space between values */
   }
   
-  /* Style the selected value differently */
-  .selected-value {
-    font-weight: bold;
-    color: #28a745; /* Green color, or adjust to your preference */
-    margin-bottom: 5px; /* Add margin between selected value and the next output */
-  }
-  

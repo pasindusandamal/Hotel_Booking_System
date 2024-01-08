@@ -16,7 +16,7 @@ const Gallery = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Container>
+    <Container style={{marginTop:50,marginBottom:70}}>
       <Row className="no-gutters">
         <Col>
           <img

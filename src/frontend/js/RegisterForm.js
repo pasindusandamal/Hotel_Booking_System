@@ -15,7 +15,7 @@ export default function RegistrationForm() {
     e.preventDefault();
 
     try {
-      let result = await fetch(" https://hotel-booking-backend-5a73b0667830.herokuapp.com/registerUser", {
+      let result = await fetch("http://localhost:5000/registerUser", {
         method: "post",
         body: JSON.stringify({
           username,
@@ -61,18 +61,20 @@ export default function RegistrationForm() {
           transform: "translate(-50%, -50%)",
           zIndex: 1,
           color: "white",
-          textAlign: "center",
+          textAlign: "left",
         }}
       >
         <h1>User Registration Form</h1>
+        <br/>
         <Form onSubmit={registerUser}>
           <Form.Group controlId="formUsername">
-            <Form.Label>Username</Form.Label>
+            <Form.Label >Username</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter your username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              
             />
           </Form.Group>
 
@@ -83,6 +85,7 @@ export default function RegistrationForm() {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              style={{borderRadius:0}}
             />
           </Form.Group>
 
@@ -93,6 +96,7 @@ export default function RegistrationForm() {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              style={{borderRadius:0}}
             />
           </Form.Group>
 
@@ -103,6 +107,7 @@ export default function RegistrationForm() {
               placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              style={{borderRadius:0}}
             />
           </Form.Group>
 
@@ -112,6 +117,7 @@ export default function RegistrationForm() {
               as="select"
               value={userRole}
               onChange={(e) => setUserRole(e.target.value)}
+              style={{borderRadius:0}}
             >
               <option value="user">User</option>
               <option value="staff">Staff</option>
@@ -120,9 +126,17 @@ export default function RegistrationForm() {
           </Form.Group>
 
           <br />
-          <Button variant="primary" type="submit" style={{ borderRadius: "0" }}>
-            Register
-          </Button>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button variant="primary" type="submit" style={{ borderRadius: "0", marginRight: 10 }}>
+              Register
+            </Button>
+
+            <div style={{ width: 10 }}></div> {/* Add a gap of 10 pixels between buttons */}
+
+            <Button variant="primary" type="button"  style={{ borderRadius: "0" }}>
+              Login
+            </Button>
+          </div>
         </Form>
       </div>
       <div

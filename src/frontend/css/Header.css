@@ -2,7 +2,7 @@
 .container {
     display: flex;
     width: 100%;
-    margin-top: 100px;
+   
   }
   
   .image-container {
@@ -54,4 +54,5 @@
     margin-top: 20px; /* Add space above the horizontal line */
     border: 1px solid #ddd; /* Set the color of the horizontal line */
   }
+  
   

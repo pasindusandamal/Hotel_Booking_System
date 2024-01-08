@@ -3,7 +3,7 @@ import "../css/Room.css"; // Import the external CSS file
 import bed1 from "../../assets/bed1.jpg"; // Replace with your actual image paths
 import bed2 from "../../assets/bed2.jpg";
 import bed3 from "../../assets/bed3.jpg";
-
+import {Link} from 'react-router-dom'
 const Room = () => {
   const [selectedImage, setSelectedImage] = useState(bed1);
   const [displayText, setDisplayText] = useState("");
@@ -16,7 +16,7 @@ const Room = () => {
   };
 
   const handleBookNowClick = () => {
-    // Add logic for "Book Now" button click
+   
     console.log("Book Now clicked");
   };
 
@@ -54,14 +54,14 @@ const Room = () => {
                   DELUXE ROOM <br />{" "}
                   <span style={{ marginLeft: "5px" }}>
                     Experience the epitome of comfort and sophistication in our
-                    Deluxe Rooms at Urban Vogue Suites.
+                    Delux Rooms at Urban Vogue Suites.
                   </span>{" "}
                 </span>
               </>
             )
           }
         >
-          DELUXE ROOM
+          Delux Room
         </button>
 
         <button
@@ -98,8 +98,8 @@ const Room = () => {
           }}
         >
           <p>{displayText}</p>
-          <button className="Button" onClick={handleBookNowClick}>
-            Book Now
+          <button className="Button-1" onClick={handleBookNowClick}>
+           <Link to ="/booking" style={{ textDecoration:'none',color:'white'}}> Book Now</Link>
           </button>
         </div>
       )}

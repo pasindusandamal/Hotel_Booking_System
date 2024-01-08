@@ -3,27 +3,46 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const Stripe = require("stripe")(process.env.SECRET_KEY);
 var cors = require("cors");
-const bcrypt = require("bcrypt");
 
 // MongoDB setup
-require("./db/connection");
+//require("./db/connection");
 const User = require("./Models/User");
 const Login = require("./Models/Login");
 
+const mongoose = require("mongoose");
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const port = process.env.PORT || 5000;
+const port = 5000;
+
+const uri = "mongodb+srv://user1:user1@cluster0.jkw3wph.mongodb.net/";
+
+async function connect() {
+  try {
+    await mongoose.connect(uri);
+    console.log("Connected");
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+connect();
 
 app.listen(port, (error) => {
   if (error) throw error;
-  console.log("Your server is running on port 5000");
+  console.log(`${port}`);
 });
 
 app.get("/getUsers", (req, res) => {
   User.find()
+    .then((users) => res.json(users))
+    .catch((err) => res.json(err));
+});
+
+app.get("/getLogins", (req, res) => {
+  Login.find()
     .then((users) => res.json(users))
     .catch((err) => res.json(err));
 });
@@ -102,6 +121,29 @@ app.delete("/deleteUser/:id", async (req, res) => {
   }
 });
 
+
+
+// Delete user endpoint
+app.delete("/deleteUsers/:id", async (req, res) => {
+  const userId = req.params.id;
+  console.log("Deleting user with ID:", userId);
+  try {
+    // Check if the user exists
+    const existingUser = await Login.findById(userId);
+
+    if (!existingUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Delete the user from the database
+    await existingUser.deleteOne(); // Use deleteOne or deleteMany
+
+    res.json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
 // Update user endpoint
 app.put("/updateUser/:id", async (req, res) => {
   const userId = req.params.id;

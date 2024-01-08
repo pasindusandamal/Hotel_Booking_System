@@ -17,11 +17,11 @@ const Booking = () => {
   return (
     <Container
       className="booking-container  mx-auto"
-      style={{ borderTop: "1px solid black" }}
+      style={{ borderTop: "1px solid gray" ,marginTop:50}}
     >
       <Form style={{marginLeft:350}}>
         <br />
-        <h2>Booking Details</h2> <br />
+        <h2 style={{fontSize:'27px'}}>Booking Details</h2> <br />
         <Row>
           <Col md={6}>
             <Form.Group controlId="adults">
@@ -31,9 +31,9 @@ const Booking = () => {
                 onChange={handleAdultsChange}
                 value={adults}
               >
-                {[...Array(10)].map((_, index) => (
+                {[...Array(4)].map((_, index) => (
                   <option key={index} value={index + 1}>
-                    {index + 1}
+                    {index }
                   </option>
                 ))}
               </Form.Control>
@@ -48,7 +48,7 @@ const Booking = () => {
                 onChange={handleKidsChange}
                 value={kids}
               >
-                {[...Array(5)].map((_, index) => (
+                {[...Array(4)].map((_, index) => (
                   <option key={index} value={index}>
                     {index}
                   </option>
@@ -64,11 +64,13 @@ const Booking = () => {
             className="text-white"
             style={{ textDecoration:'none'}}
           >
-            Proceed to Next Step
+            Proceed to Next 
           </Link>
         </Button>
+        
       </Form>
-    </Container>
+    
+    </Container >
   );
 };
 

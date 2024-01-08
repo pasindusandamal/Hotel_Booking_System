@@ -20,9 +20,11 @@ import Stripe from "./frontend/js/Stripe";
 import Form from "./frontend/js/Form";
 import RegisterForm from "./frontend/js/RegisterForm";
 import LoginForm from "./frontend/js/LoginForm";
-import WelcomePage from "./frontend/js/welcome";
+import Reservation from "./frontend/js/ReservationList";
 import Gallery from "./frontend/js/Gallery";
-import Admindb from "./frontend/js/Admindb";
+import Users from "./frontend/js/Users";
+import ReservationList from "./frontend/js/ReservationList";
+import Admin from "./frontend/js/Admin";
 
 function Bookingsection() {
   return <Booking />;
@@ -42,7 +44,8 @@ function Homepage() {
       <Offer />
       <Gallery/>
       <Footer />
-      <Admindb/>
+     
+     
       
     </>
   );
@@ -61,7 +64,10 @@ function App() {
         <Route path="/frm" element={<Form />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm/>} />
-        <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/reservation" element={<ReservationList />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/admin" element={<Admin />} />
+       
       </Routes>
     </BrowserRouter>
   );

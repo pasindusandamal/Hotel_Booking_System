@@ -6,6 +6,7 @@
     width: 100%;
     overflow: hidden;
     margin-top: 100px;
+    margin-bottom: 100px;
     
   }
   
@@ -37,11 +38,25 @@
     cursor: pointer;
     transition: background-color 0.3s;
     margin: 5px;
+    border: none;
    
   }
   
   .Button:hover {
-    background-color: #2980b9;
+    background-color: transparent;
+    color: #3498db;
+  }
+
+  .Button-1{
+    background-color:transparent;
+    margin-left: 7px;
+    border: 1px solid rgb(119, 63, 63) ;
+   
+  }
+
+  .Button-1:hover{
+    background-color:  rgb(119, 63, 63);
+    
   }
 
   

@@ -7,7 +7,7 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 import "../css/Calendar.css";
 import axios from "axios";
 
-// Define the CalendarStep component
+
 // Define the CalendarStep component
 const CalendarStep = ({ title, selectedDate, onChange, excludeDates }) => (
   <div className="calendar-step">
@@ -21,13 +21,14 @@ const CalendarStep = ({ title, selectedDate, onChange, excludeDates }) => (
       excludeDates={excludeDates}
       withPortal
       calendarClassName="custom-calendar-container"
+      
     />
-    <input
+  {/*  <input
       type="text"
       value={selectedDate ? selectedDate.toDateString() : ""}
       readOnly
-      style={{ width: "150px" }} // Adjust the width as needed
-    />
+      style={{ width: "150px" }} 
+    />*/}
     <div className="button-container">
       <Button
         style={{ backgroundColor: "rgb(180, 141, 12)", borderRadius: 0, border: 0, color: "white", fontSize: "14px" }}
@@ -82,8 +83,8 @@ const Calendar = () => {
   }, []);
 
   return (
-    <Container style={{ borderTop: '1px solid grey' }}>
-      <Row style={{ fontSize: "14px", marginLeft: 150, marginTop: 50 }}>
+    <Container style={{ borderTop: '1px solid grey',marginTop:50 }}>
+      <Row style={{ fontSize: "14px", marginLeft: 250, marginTop: 50 }}>
         <Col>
           <CalendarStep
             title="Check-In"

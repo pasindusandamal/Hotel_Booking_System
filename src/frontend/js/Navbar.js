@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="left-section">
-        <span className="logo">Urban Vogue Suites</span>
+        <span className="logo">Urban Vogue </span>
       </div>
       <div className={`center-section ${showMenu ? "show-menu" : ""}`}>
         <ul className={`nav-list ${showMenu ? "show-menu" : ""}`}>
@@ -24,12 +24,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/" className="nav-link">
+            <Link to="/acc" className="nav-link">
               Rooms
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/" className="nav-link">
+            <Link to="/booking" className="nav-link">
               Booking
             </Link>
           </li>

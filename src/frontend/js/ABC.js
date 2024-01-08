@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../css/ABC.css";
 import { Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCcVisa } from "@fortawesome/free-brands-svg-icons";
-import { faCcStripe } from "@fortawesome/free-brands-svg-icons";
+import { faCcVisa, faCcStripe } from "@fortawesome/free-brands-svg-icons";
 import Stripe from "../js/Stripe";
 import { Link } from "react-router-dom";
 
@@ -20,14 +18,29 @@ const ABC = () => {
   const kids = queryParams.get("kids");
   const checkIn = queryParams.get("checkIn");
   const checkOut = queryParams.get("checkOut");
-  const selectedValue = queryParams.get("selectedValue"); // Add this line
+  const selectedValue = parseFloat(queryParams.get("selectedValue")) || 0;
+
+  // State variables for tax and total
+  const [tax, setTax] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  // useEffect to recalculate tax and total whenever selectedValue changes
+  useEffect(() => {
+    // Assuming tax is 7%
+    const calculatedTax = selectedValue * 0.07;
+    setTax(calculatedTax);
+
+    // Total is the sum of selectedValue and tax
+    const calculatedTotal = selectedValue + calculatedTax;
+    setTotal(calculatedTotal);
+  }, [selectedValue]);
 
 
 
   
   return (
-    <Container style={{ borderTop: "1px solid #ddd" }}>
-      <Row style={{ marginTop: 20 }}>
+    <Container style={{ borderTop: "1px solid #ddd",marginTop:50 }}>
+      <Row style={{ marginTop: 50 }}>
         <p style={{ textAlign: "center" }}>
           Summery
           <br />
@@ -72,16 +85,27 @@ const ABC = () => {
           <Row>
             <Col>
               <p className="selected-value" style={{ fontSize: 14 }}>
-                Selected Value:
+                Price(USD):
               </p>
             </Col>
-            <Col> {selectedValue}</Col>
+            <Col> {selectedValue.toFixed(2)}</Col>
           </Row>
-          {/* Add this line */}
           <hr />
-          <p style={{ fontSize: 14 }}>Tax</p>
+          <Row>
+            <Col>
+              <p style={{ fontSize: 14 }}>Tax</p>
+            </Col>
+            <Col>{tax.toFixed(2)}</Col>
+          </Row>
           <hr />
-          <p style={{ fontSize: 14 }}>Total</p>
+          <Row>
+            <Col>
+              <p style={{ fontSize: 14 }}>Total</p>
+            </Col>
+            <Col>{total.toFixed(2)}</Col>
+          </Row>
+          <hr />
+          <p style={{ fontSize: 14 }}>Special Requests</p>
           <hr />
           <div style={{ fontSize: 14 }}>
             <p>Special Requests</p>
@@ -134,7 +158,7 @@ const ABC = () => {
           <br />
           <div style={{ width: 250, height: 50, borderRadius: "0" }}>
             {" "}
-            <Link to={`/frm?selectedValue=${selectedValue}&adults=${adults}&kids=${kids}&checkIn=${checkIn}&checkOut=${checkOut}`}>
+            <Link  to={`/frm?selectedValue=${selectedValue}&adults=${adults}&kids=${kids}&checkIn=${checkIn}&checkOut=${checkOut}`}>
             <Stripe />
           </Link>
           </div>
