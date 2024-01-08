@@ -17,7 +17,7 @@ app.use(cors());
 
 const port = 5000;
 
-const uri = "mongodb+srv://user1:user1@cluster0.jkw3wph.mongodb.net/";
+const uri = "mongodb+srv://user1:user1@cluster0.wi9xsci.mongodb.net/";
 
 async function connect() {
   try {
